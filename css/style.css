@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
-    --primary-color: #BE3D2A; 
-    --secondary-color: #E78B48; 
+:root {
+    --primary-color: #BE3D2A;
+    --secondary-color: #E78B48;
     --background-color: #FFFFFF;
-    --text-color: #333333; 
+    --text-color: #333333;
     --surface-color: #102E50;
     --accent-color: #F5C45E;
     --font-family: 'Urbanist', sans-serif;
@@ -13,42 +13,82 @@
     --espacio-seccion: 90px;
 }
 
-body{
+body {
     font-family: var(--font-family);
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
-h1{
+h1 {
     font-size: 4rem;
     font-weight: 200;
     letter-spacing: -3px;
 }
-h2{
+
+h2 {
     font-size: 2.5rem;
     font-weight: 900;
     letter-spacing: -2px;
     text-transform: lowercase;
 }
-h3{
+
+h3 {
     font-size: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
 }
-#nosotros{
+
+#nosotros {
     background-color: var(--surface-color);
     color: var(--background-color);
 }
-#historia{
+
+#historia {
     background-color: var(--accent-color);
     color: var(--color-negro);
 }
-#main-footer{
+
+#oficinas {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+}
+
+#main-footer {
     background-color: var(--text-color);
     color: var(--color-gris-claro);
     padding: 45px 0;
 }
-.padded{
+
+.padded {
     padding-top: var(--espacio-seccion);
     padding-bottom: var(--espacio-seccion);
+}
+
+.list-group-item.active {
+    background-color: var(--primary-color);
+    border-color: var(--color-negro);
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    box-shadow: 0 -3px var(--accent-color);
+}
+
+.oficina-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.page-header{
+    color: white;
+    background-color: var(--surface-color);
+    padding: 20px 0;
+}
+
+
+
+@media (min-width: 1520px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+        max-width: 1440px;
+    }
 }
