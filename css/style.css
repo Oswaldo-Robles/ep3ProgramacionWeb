@@ -69,7 +69,8 @@ h3 {
     border-color: var(--color-negro);
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
     box-shadow: 0 -3px var(--accent-color);
 }
 
@@ -79,16 +80,82 @@ h3 {
 }
 
 
-.page-header{
+.page-header {
     color: white;
     background-color: var(--surface-color);
     padding: 20px 0;
 }
 
+/*Card de tienda*/
+#grid-productos {
+    text-align: center;
+    position: relative;
+}
+
+#grid-productos .card {
+    overflow: hidden;
+}
+
+#grid-productos .card:hover {
+    background-color: #96c8cc;
+}
+
+#grid-productos img:hover{
+    transform: scale(1.2);
+}
+
+#grid-productos img{
+    transition: ease-in-out all 0.5s;
+}
+
+.precio-anterior {
+    font-size: 0.9em;
+    color: var(--primary-color) !important;
+}
+
+.porcentaje-descuento {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--surface-color);
+    color: var(--color-gris-claro);
+    padding: 5px 10px;
+}
+
+.icono-vista-rapida {
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+
+.icono-vista-rapida:hover {
+    background-color: black;
+    color: white;
+}
+
+#grid-productos .card:hover .icono-vista-rapida {
+    top: 25%;
+}
+
+
+
+
 
 
 @media (min-width: 1520px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
         max-width: 1440px;
     }
 }

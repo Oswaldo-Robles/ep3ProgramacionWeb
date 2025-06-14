@@ -1,6 +1,8 @@
 (() => {
 
     const listaCategorias = document.getElementById('list-categorias');
+    const gripProductos = document.getElementById("grid-productos");
+    let productosCategoria = [];
 
     fetch(window.SERVICIOURL + "/categoria.php")
         .then((response) => response.json())
@@ -56,35 +58,106 @@
             .then((data) => {
                 console.log(data);
                 dibujarProductos(data);
-
+                productosCategoria = data
             })
-
     }
 
     const dibujarProductos = (data) => {
-        const gripProductos = document.getElementById("grid-productos")
         gripProductos.innerHTML = "";
 
         data.forEach(itemProducto => {
+
+            const precioLista = Number(itemProducto.precio);
+            const precioOferta = Number(itemProducto.preciorebajado);
+            const precioFinal = precioOferta === 0 ? precioLista : precioOferta;
+
+            const mostrarPrecioAnterior = precioOferta === 0 ?
+                "" : `<span class="text-decoration-line-through text-secondary precio-anterior">S/.-${precioLista.toFixed(2)}</span>`;
+
+            const porcentajeDescuento = precioOferta === 0 ?
+                "" : `<span class="badge bg-danger porcentaje-descuento">-${Math.round((1 - (precioFinal / precioLista)) * 100)}%</span>`;
+
             const imagenProducto = window.SERVICIOURL + (itemProducto.imagenchica
-                ? "/" +itemProducto.imagenchica
+                ? "/" + itemProducto.imagenchica
                 : "/imagenes/nofoto.jpg");
 
             const card = `
                         <div class="col">
                             <div class="card h-100">
                                     <div class="card-body">
-                                    <img src="${imagenProducto}" class="card-img-top" alt="imagen del empreado">
-                                    <p class="card-title">${itemProducto.nombre}</p>
-                                    <p class="card-text">S/. ${itemProducto.precio.toFixed(2)} </p>
-                                </div>
+                                        <img src="${imagenProducto}" class="card-img-top img-producto" alt="imagen del producto">
+                                        <i class="bi bi-eye icono-vista-rapida"  data-bs-toggle="modal" data-bs-target="#vista-rapida-modal"> </i>
+
+                                        <p class="card-title mt-4">${itemProducto.nombre} ${porcentajeDescuento}</p>
+                                
+                                        <p class="card-text">S/. ${precioFinal.toFixed(2)}   ${mostrarPrecioAnterior} </p>
+                                    </div>
                             </div>
+                        </div>
                 `
             gripProductos.innerHTML += card
         });
 
+        gripProductos.querySelectorAll('.icono-vista-rapida').forEach((iconoVistaRapida, index) => {
+            iconoVistaRapida.addEventListener('click', () => mostrarProductoVistaRapida(index));
+
+        })
+
+        gripProductos.querySelectorAll('.img-producto').forEach((imagenProducto, index) => {
+            imagenProducto.addEventListener('click', () => mostrarDetalleProducto(index));
+        });
+
+    }
+
+    const mostrarDetalleProducto = (index) => {
+        let productoSelecionadoId = productosCategoria[index].idproducto;
+
+        fetch(window.SERVICIOURL + `/productosDetalle.php?idproducto=${productoSelecionadoId}`)
+            .then((response) => response.json())
+            .then((dataDetalle) => {
+                let rutaImagen = `${window.SERVICIOURL}/${dataDetalle[0].imagengrande}`;
+
+                const precioLista = Number(dataDetalle[0].precio);
+                const precioOferta = Number(dataDetalle[0].preciorebajado);
+                const precioFinal = precioOferta === 0 ? precioLista : precioOferta;
+
+                const mostrarPrecioAnterior = precioOferta === 0 ?
+                    "" : `<span class="text-decoration-line-through text-secondary precio-anterior">S/.-${precioLista.toFixed(2)}</span>`;
+
+                document.getElementById("producto-detalle-nombre").textContent = dataDetalle[0].nombre;
+                document.getElementById("producto-detalle-imagen").setAttribute("src", rutaImagen);
+                document.getElementById("producto-detalle-detalle").textContent = `${dataDetalle[0].detalle}`;
+                document.getElementById("producto-detalle-stock").textContent = `${dataDetalle[0].unidadesenexistencia}`;
+                document.getElementById("producto-detalle-precio").innerHTML = `S/.${precioFinal.toFixed(2)} ${mostrarPrecioAnterior}`;
+
+            })
+    }
+
+    
+
+    const mostrarProductoVistaRapida = (index) => {
+        let productoSelecionadoId = productosCategoria[index].idproducto;
+
+        fetch(window.SERVICIOURL + `/productosVistaRapida.php?idproducto=${productoSelecionadoId}`)
+            .then((response) => response.json())
+            .then((dataDetalle) => {
+                let rutaImagen = `${window.SERVICIOURL}/${dataDetalle[0].imagengrande}`;
+
+                const precioLista = Number(dataDetalle[0].precio);
+                const precioOferta = Number(dataDetalle[0].preciorebajado);
+                const precioFinal = precioOferta === 0 ? precioLista : precioOferta;
+
+                const mostrarPrecioAnterior = precioOferta === 0 ?
+                    "" : `<span class="text-decoration-line-through text-secondary precio-anterior">  S/.-${precioLista.toFixed(2)}</span>`;
 
 
+                document.getElementById("producto-detaller-nombre").textContent = dataDetalle[0].nombre;
+                document.getElementById("producto-detalle-imagen").setAttribute("src", rutaImagen);
+                document.getElementById("producto-detalle-detalle").textContent = `${dataDetalle[0].detalle}`;
+                document.getElementById("producto-detalle-stock").textContent = `${dataDetalle[0].unidadesenexistencia}`;
+                document.getElementById("producto-detalle-precio").innerHTML = `S/.${precioFinal.toFixed(2)} ${mostrarPrecioAnterior}`;
+
+            })
     }
 
 })();

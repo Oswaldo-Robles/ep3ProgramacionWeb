@@ -25,7 +25,7 @@
                     (<span id="categoria-total"> </span> encontrados)
                 </p>
 
-                <div class="row row-cols-2 row-cols-xl-5  row-cols-lg-3  row-cols-md-2   g-4" id="grid-productos">
+                <div class="row row-cols-2 row-cols-xl-5  row-cols-lg-3  row-cols-md-2 g-4" id="grid-productos">
 
                 </div>
 
@@ -34,3 +34,45 @@
     </div>
 
 </section>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="vista-rapida-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title fs-5" id="producto-detaller-nombre">Modal title</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md">
+                <img src="" alt="" class="img-fluid" id="producto-detalle-imagen">
+            </div>
+            <div class="col-md">
+                <table class="table">
+                    <tr>
+                        <th>Detalle</th>
+                        <td id="producto-detalle-detalle"></td>
+                    </tr>
+                    <tr>
+                        <th>stock</th>
+                        <td id="producto-detalle-stock"></td>
+                    </tr>
+                    <tr>
+                        <th>Precio</th>
+                        <td id="producto-detalle-precio"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Añadir al carrito <i class="bi bi-cart-check"></i> </button>
+      </div>
+    </div>
+  </div>
+</div>
