@@ -1,5 +1,5 @@
 "use strict"
-window.SERVICIOURL = "http://localhost/ServiciosPhpProgramacionWeb";
+window.SERVICIOURL = "https://ecotasty.store/apiProgramacionWebIsil";
 
 const menuData=[
     {label:"empleados",url:"/pages/empleados.html", script:"/js/pages/empleados.js"},
