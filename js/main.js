@@ -2,12 +2,11 @@
 window.SERVICIOURL = "https://ecotasty.store/apiProgramacionWebIsil";
 
 const menuData=[
-    {label:"empleados",url:"/pages/empleados.html", script:"/js/pages/empleados.js"},
-    {label:"inversiones",url:"/pages/inversiones.html"},
-    {label:"proveedores",url:"/pages/proveedores.html", script:"/js/pages/proveedores.js"},
-    {label:"tienda",url:"/pages/tienda.html", script:"/js/pages/tienda.js"},
-    {label:"carrito",url:"/pages/carrito.html", script:"/js/pages/carrito.js"},
-
+    {label:"empleados",url:"pages/empleados.html", script:"js/pages/empleados.js"},
+    {label:"inversiones",url:"pages/inversiones.html"},
+    {label:"proveedores",url:"pages/proveedores.html", script:"js/pages/proveedores.js"},
+    {label:"tienda",url:"pages/tienda.html", script:"js/pages/tienda.js"},
+    {label:"carrito",url:"pages/carrito.html", script:"js/pages/carrito.js"},
 ]
 
 const menuMain = document.getElementById("menu-main")
@@ -52,7 +51,7 @@ const loadPage = (itemUrl, itemScript) => {
 }
 
 logoNavbarBrand.addEventListener("click",()=>{
-    loadPage("/pages/home.html","js/pages/home.js")
+    loadPage("pages/home.html","js/pages/home.js")
 })
 
 logoNavbarBrand.click()
