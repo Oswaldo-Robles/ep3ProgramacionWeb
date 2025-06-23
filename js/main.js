@@ -2,34 +2,46 @@
 window.SERVICIOURL = "https://ecotasty.store/apiProgramacionWebIsil";
 
 const menuData=[
-    {label:"empleados",url:"pages/empleados.html", script:"js/pages/empleados.js"},
-    {label:"inversiones",url:"pages/inversiones.html"},
-    {label:"proveedores",url:"pages/proveedores.html", script:"js/pages/proveedores.js"},
-    {label:"tienda",url:"pages/tienda.html", script:"js/pages/tienda.js"},
-    {label:"carrito",url:"pages/carrito.html", script:"js/pages/carrito.js"},
+    {ubicacion: 1, label:"empleados",url:"pages/empleados.html", script:"js/pages/empleados.js"},
+    {ubicacion: 1, label:"inversiones",url:"pages/inversiones.html"},
+    {ubicacion: 1, label:"proveedores",url:"pages/proveedores.html", script:"js/pages/proveedores.js"},
+    {ubicacion: 1, label:"tienda",url:"pages/tienda.html", script:"js/pages/tienda.js"},
+    {ubicacion: 2, label:"carrito",url:"pages/carrito.html", script:"js/pages/carrito.js", icon: "bi bi-cart"},
+    {ubicacion: 2, label:"Iniciar sesión",url:"pages/iniciarSesion.html", script:"js/pages/iniciarSesion.js", icon: "bi bi-person-circle"}
 ]
 
 const menuMain = document.getElementById("menu-main")
+const menuRight = document.getElementById("menu-rigth")
 const mainContent = document.getElementById("main-content")
 const logoNavbarBrand = document.getElementById("logo-navbar-brand")
 
 
-menuData.forEach(itemMenu=>{
-    const liMenu = document.createElement("li")
-    liMenu.className = "nav-item"
-    const link = document.createElement("a")
-    link.className = "nav-link"
+menuData.map(itemMenu=>{
+    const liMenu = document.createElement("li");
+    liMenu.className = "nav-item";
 
-    liMenu.appendChild(link)
-    menuMain.appendChild(liMenu)
+    const link = document.createElement("a");
+    link.className = "nav-link";
+    link.innerHTML = itemMenu.label;
 
-    link.innerText = itemMenu.label
-    
+    liMenu.appendChild(link);
+    if(itemMenu.ubicacion===1){
+        menuMain.appendChild(liMenu);
+    } else if(itemMenu.ubicacion===2){
+        menuRight.appendChild(liMenu)
+    }
+
+    if (itemMenu.icon){
+        const icon = document.createElement("i");
+        icon.className = itemMenu.icon;
+        link.append(icon);
+    }
+
     link.addEventListener("click",()=>{
         loadPage(itemMenu.url, itemMenu.script)
         // Quita 'active' de todos los enlaces
         menuMain.querySelectorAll("a").forEach(a => a.classList.remove("active"));
-
+        menuRight.querySelectorAll("a").forEach(a => a.classList.remove("active"));
         // Pone 'active' en el link clickeado
         link.classList.add("active");
     })

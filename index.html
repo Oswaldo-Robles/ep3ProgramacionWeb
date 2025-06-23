@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8">
-
-  <meta http-equiv="Content-Security-Policy" content="
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
 default-src 'self';
 style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com;
 font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
 script-src 'self';
 connect-src 'self' https://ecotasty.store https://oswaldo-robles.github.io;
 img-src 'self' data: https:;
-">
+"
+    />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+    />
+    <!-- Conexion de boostrap icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css">
-  <!-- Conexion de boostrap icons-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+  </head>
 
-  <title>Document</title>
-</head>
-
-<body>
-
-  <header id="main-header">
-    <div class="container">
-      <h1>Ideas Digitales</h1>
-    </div>
-  </header>
-
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container">
-      <a class="navbar-brand" id="logo-navbar-brand">ID+</a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu-main">
-
-
-        </ul>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <h1>Ideas Digitales</h1>
       </div>
-    </div>
-  </nav>
+    </header>
 
-  <main id="main-content">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" id="logo-navbar-brand">ID+</a>
 
-  </main>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <footer id="main-footer">
-    <div class="container">
-      2025 &copy; Ideas Digitales Todos los derechos reservados
-    </div>
-  </footer>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu-main"></ul>
 
-  <script src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
-</body>
+          <ul class="navbar-nav mb-2 mb-lg-0" id="menu-rigth"></ul>
+        </div>
+      </div>
+    </nav>
 
+    <main id="main-content"></main>
+
+    <footer id="main-footer">
+      <div class="container">
+        2025 &copy; Ideas Digitales Todos los derechos reservados
+      </div>
+    </footer>
+
+    <script src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
