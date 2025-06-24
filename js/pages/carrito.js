@@ -12,9 +12,9 @@
             `<tr> 
                 <td>${item.idProducto}</td>
                 <td>${item.nombre}</td>
-                <td>${item.precio}</td>
-                <td>${item.cantidad}</td>
-                <td>${item.precio * item.cantidad }</td>
+                <td class= "text-end">${item.cantidad}</td>
+                <td class= "text-end">${item.precio * item.cantidad }</td>
+                <td class= "text-end">${item.precio.toFixed(2)}</td>
             </tr>`
 
         tbodyCarrito.innerHTML += fila
