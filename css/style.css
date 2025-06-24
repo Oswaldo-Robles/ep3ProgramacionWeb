@@ -143,11 +143,11 @@ h3 {
     top: 25%;
 }
 
-.icono-Carrito{
+.icono-Carrito, .icono-eliminar{
     cursor: pointer; 
 }
 
-.icono-Carrito:hover{
+.icono-Carrito:hover, .icono-eliminar:hover{
     color: var(--primary-color);
 }
 
