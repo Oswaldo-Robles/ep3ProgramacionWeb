@@ -151,6 +151,9 @@ h3 {
     color: var(--primary-color);
 }
 
+.caja-cantidad{
+    width: 100px;
+}
 
 
 @media (min-width: 1520px) {

@@ -22,8 +22,19 @@
         })
     }
 
+    const habilitarCantidadItem = () => {
+        tbodyCarrito.querySelectorAll(".input-cantidad").forEach((inputCantidad, index) => {
+            inputCantidad.addEventListener("input", () => {
+                const nuevaCantidad = parseInt(inputCantidad.value)
+                carrito[index].cantidad = nuevaCantidad
+                sessionStorage.setItem("carritoCompra", JSON.stringify(carrito))
+                dibujarCarrito();
+            })
+        })
+    }
+
     const dibujarCarrito = () => {
-        alertaVacio.style.display = carrito.length > 0 ? "none":"block"
+        alertaVacio.style.display = carrito.length > 0 ? "none" : "block"
         tbodyCarrito.innerHTML = "";
         carrito.map(item => {
             let fila =
@@ -31,7 +42,9 @@
                 <td>${item.idProducto}</td>
                 <td>${item.nombre}</td>
                 <td class= "text-end">${item.precio.toFixed(2)}</td>
-                <td class= "text-end">${item.cantidad }</td>
+                <td class= "text-end">
+                    <input type="number" class="form-control text-end input-cantidad" min="1" value = "${item.cantidad }"> 
+                </td>
                 <td class= "text-end">${item.precio.toFixed(2)*item.cantidad}</td>
                 <td> <i class="bi bi-x-circle icono-eliminar" title="Eliminar item"></i> </td>
             </tr>`
@@ -39,6 +52,7 @@
             tbodyCarrito.innerHTML += fila
         })
         habilitarEliminarItem();
+        habilitarCantidadItem();
         calcularTotalCarrito();
     }
 
