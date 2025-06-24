@@ -77,9 +77,9 @@
             const porcentajeDescuento = precioOferta === 0 ?
                 "" : `<span class="badge bg-danger porcentaje-descuento">-${Math.round((1 - (precioFinal / precioLista)) * 100)}%</span>`;
 
-            const imagenProducto = window.SERVICIOURL + (itemProducto.imagenchica
-                ? "/" + itemProducto.imagenchica
-                : "/imagenes/nofoto.jpg");
+            const imagenProducto = window.SERVICIOURL + (itemProducto.imagenchica ?
+                "/" + itemProducto.imagenchica :
+                "/imagenes/nofoto.jpg");
 
             const card = `
                         <div class="col">
@@ -90,7 +90,9 @@
 
                                         <p class="card-title mt-4">${itemProducto.nombre} ${porcentajeDescuento}</p>
                                 
-                                        <p class="card-text">S/. ${precioFinal.toFixed(2)}   ${mostrarPrecioAnterior} </p>
+                                        <p class="card-text">S/. ${precioFinal.toFixed(2)}   ${mostrarPrecioAnterior} 
+                                            <i class="bi bi-basket icono-Carrito" title="Añadir al carrito"></i>
+                                        </p>
                                     </div>
                             </div>
                         </div>
@@ -107,11 +109,15 @@
             imagenProducto.addEventListener('click', () => mostrarDetalleProducto(index));
         });
 
+        gripProductos.querySelectorAll('.icono-Carrito').forEach((iconoCarrito, index) => {
+            iconoCarrito.addEventListener('click', () => agregarItemCarrito(productosCategoria[index],1));
+        });
+
     }
 
     const mostrarDetalleProducto = (index) => {
         let productoSelecionadoId = productosCategoria[index].idproducto;
-        
+
         // Redirigir a la página de detalle del producto
         fetch("pages/productoDetalle.html")
             .then((response) => response.text())

@@ -62,6 +62,29 @@ const loadPage = (itemUrl, itemScript) => {
         })
 }
 
+const agregarItemCarrito =(itemCarrito, cantidad)=>{
+    
+   const precioFinal = itemCarrito.preciorebajado === 0 ? itemCarrito.precio : itemCarrito.preciorebajado; 
+   //console.log(precioFinal)
+
+   const nuevoItem = {
+        idProducto: itemCarrito.idproducto,
+        nombre: itemCarrito.nombre,
+        precio: precioFinal,
+        cantidad: cantidad,
+   };
+
+   const carrito = JSON.parse(sessionStorage.getItem("carritoCompra")) || [];
+   carrito.push(nuevoItem)
+   
+   sessionStorage.setItem("carritoCompra",JSON.stringify(carrito)) 
+   
+
+
+
+
+}
+
 logoNavbarBrand.addEventListener("click",()=>{
     loadPage("pages/home.html","js/pages/home.js")
 })
