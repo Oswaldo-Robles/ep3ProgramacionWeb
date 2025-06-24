@@ -3,6 +3,7 @@
     const tbodyCarrito = document.getElementById("tbody-carrito")
     const btnVaciarCarrito = document.getElementById("btn-vaciar-carrito")
     const totalPedido = document.getElementById("total-pedido")
+    const alertaVacio = document.getElementById("alerta-carrito-vacio")
 
     carrito = JSON.parse(sessionStorage.getItem("carritoCompra"))
 
@@ -22,6 +23,7 @@
     }
 
     const dibujarCarrito = () => {
+        alertaVacio.style.display = carrito.length > 0 ? "none":"block"
         tbodyCarrito.innerHTML = "";
         carrito.map(item => {
             let fila =
