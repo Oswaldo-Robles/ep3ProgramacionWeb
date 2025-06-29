@@ -20,6 +20,13 @@ const menuData = [{
     },
     {
         ubicacion: 1,
+        label: "clientes",
+        url: "pages/cliente.html",
+        script: "js/pages/cliente.js"
+    },
+
+    {
+        ubicacion: 1,
         label: "tienda",
         url: "pages/tienda.html",
         script: "js/pages/tienda.js"
