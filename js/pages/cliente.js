@@ -67,7 +67,6 @@
     }
     dibujarTabla();
 
-
     btnRetroceder.addEventListener("click", () => {
         if (numeroPagina > 1) {
             numeroPagina--;

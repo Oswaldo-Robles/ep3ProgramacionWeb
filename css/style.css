@@ -164,6 +164,15 @@ h3 {
     color: var(--primary-color);
 }
 
+#tbody-directores tr i{
+    display: none;
+}
+
+#tbody-directores tr:hover i{
+    display: inline;
+}
+
+
 
 @media (min-width: 1520px) {
 

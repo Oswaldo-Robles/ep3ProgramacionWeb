@@ -8,10 +8,8 @@
     <div class="container">
 
         <div class="mb-3">
-<!-- 
-            <button class="btn btn-primary"> Nuevo director </button> -->
-
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Nuevo director</button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight">Nuevo director</button>
 
         </div>
 
@@ -39,15 +37,44 @@
     <div class="offcanvas-body">
         <form id="form-insert">
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Nombre del director" required minlength="4">
-            </div> 
+                <input type="text" name="nombre" class="form-control" placeholder="Nombre del director" required
+                    minlength="4">
+            </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Pelicula" required minlength="3">
-            </div> 
+                <input type="text" name="pelicula" class="form-control" placeholder="Pelicula" required minlength="3">
+            </div>
 
             <div class="mb-3">
-                <button class="btn btn-primary" type="submit"> Guardar </button> 
+                <button class="btn btn-primary" type="submit"> Guardar </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-Update" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Actualizar director</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <form id="form-update">
+            <div class="mb-3">
+                <input type="text" name="iddirector" class="form-control"  id="updateIdDirector" readonly>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="nombres" class="form-control"  id="updateNombreDirector" placeholder="Nombre del director" required
+                    minlength="4">
+            </div>
+
+            <div class="mb-3">
+                <input type="text" name="peliculas" class="form-control"  id="updatePeliculaDirector" placeholder="Pelicula" required minlength="3">
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit"> Actualizar </button>
             </div>
 
         </form>
