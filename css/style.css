@@ -155,6 +155,15 @@ h3 {
     width: 100px;
 }
 
+/*Directores*/
+.icono-editar, .icono-eliminar{
+    cursor: pointer;
+}
+
+.icono-editar:hover, .icono-eliminar:hover{
+    color: var(--primary-color);
+}
+
 
 @media (min-width: 1520px) {
 

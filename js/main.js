@@ -11,6 +11,13 @@ const menuData = [{
         ubicacion: 1,
         label: "inversiones",
         url: "pages/inversiones.html"
+
+    },
+    {
+        ubicacion: 1,
+        label: "directores",
+        url: "pages/directores.html",
+        script: "js/pages/directores.js"
     },
     {
         ubicacion: 1,
