@@ -1,8 +1,8 @@
 
-
 (() => {
 
     const gridEmpleados = document.getElementById("grid-empleados")
+    const precarga = document.getElementById("Precarga")
 
     fetch(window.SERVICIOURL+"/empleados.php")
         .then((response) => response.json())
@@ -21,11 +21,11 @@
                             </div>
                 `
                 gridEmpleados.innerHTML += card
-
             });
+            gridEmpleados.classList.remove("d-none");
+            precarga.classList.add("d-none");
 
             /*
-
             data.forEach(itemProveedor => {
                 const fila = document.createElement("tr")
                 const celda1 = document.createElement("td")
