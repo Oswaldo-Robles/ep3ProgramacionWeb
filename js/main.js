@@ -2,56 +2,56 @@
 window.SERVICIOURL = "https://ecotasty.store/apiProgramacionWebIsil";
 
 const menuData = [{
-        ubicacion: 1,
-        label: "empleados",
-        url: "pages/empleados.html",
-        script: "js/pages/empleados.js"
-    },
-    {
-        ubicacion: 1,
-        label: "inversiones",
-        url: "pages/inversiones.html"
+    ubicacion: 1,
+    label: "empleados",
+    url: "pages/empleados.html",
+    script: "js/pages/empleados.js"
+},
+{
+    ubicacion: 1,
+    label: "inversiones",
+    url: "pages/inversiones.html"
 
-    },
-    {
-        ubicacion: 1,
-        label: "directores",
-        url: "pages/directores.html",
-        script: "js/pages/directores.js"
-    },
-    {
-        ubicacion: 1,
-        label: "proveedores",
-        url: "pages/proveedores.html",
-        script: "js/pages/proveedores.js"
-    },
-    {
-        ubicacion: 1,
-        label: "clientes",
-        url: "pages/cliente.html",
-        script: "js/pages/cliente.js"
-    },
+},
+{
+    ubicacion: 1,
+    label: "directores",
+    url: "pages/directores.html",
+    script: "js/pages/directores.js"
+},
+{
+    ubicacion: 1,
+    label: "proveedores",
+    url: "pages/proveedores.html",
+    script: "js/pages/proveedores.js"
+},
+{
+    ubicacion: 1,
+    label: "clientes",
+    url: "pages/cliente.html",
+    script: "js/pages/cliente.js"
+},
 
-    {
-        ubicacion: 1,
-        label: "tienda",
-        url: "pages/tienda.html",
-        script: "js/pages/tienda.js"
-    },
-    {
-        ubicacion: 2,
-        label: "carrito",
-        url: "pages/carrito.html",
-        script: "js/pages/carrito.js",
-        icon: "bi bi-cart"
-    },
-    {
-        ubicacion: 2,
-        label: "Iniciar sesión",
-        url: "pages/iniciarSesion.html",
-        script: "js/pages/iniciarSesion.js",
-        icon: "bi bi-person-circle"
-    }
+{
+    ubicacion: 1,
+    label: "tienda",
+    url: "pages/tienda.html",
+    script: "js/pages/tienda.js"
+},
+{
+    ubicacion: 2,
+    label: "carrito",
+    url: "pages/carrito.html",
+    script: "js/pages/carrito.js",
+    icon: "bi bi-cart"
+},
+{
+    ubicacion: 2,
+    label: "Iniciar sesión",
+    url: "pages/iniciarSesion.html",
+    script: "js/pages/iniciarSesion.js",
+    icon: "bi bi-person-circle"
+}
 ]
 
 const menuMain = document.getElementById("menu-main")
@@ -130,11 +130,6 @@ const agregarItemCarrito = (itemCarrito, cantidad) => {
 
     //carrito.push(nuevoItem)
     sessionStorage.setItem("carritoCompra", JSON.stringify(carrito))
-
-
-
-
-
 }
 
 logoNavbarBrand.addEventListener("click", () => {
@@ -142,4 +137,19 @@ logoNavbarBrand.addEventListener("click", () => {
 })
 
 logoNavbarBrand.click()
-// Se carga la página de inicio al cargar el script
+
+class HeaderComponent extends HTMLElement {
+    connectedCallback() {
+        const titulo = this.getAttribute("titulo");
+        this.innerHTML = `
+        <header class="page-header">
+            <div class="container">
+                <h1>${titulo}</h1>
+            </div>
+        </header>
+        
+        `;
+    }
+}
+
+customElements.define("header-component", HeaderComponent);
