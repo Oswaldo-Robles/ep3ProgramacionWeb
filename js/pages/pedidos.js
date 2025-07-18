@@ -66,14 +66,19 @@
                             </div>
                         </div>
                     </div>
-
                     `;
 
                     cajaPedidos.innerHTML += filaPedido;
                 });
-
+                numeroPagina++;
             });
     }
+
+    window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+            cargarPedidos();
+        }
+    });
 
     cargarPedidos();
 
