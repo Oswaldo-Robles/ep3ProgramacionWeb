@@ -38,6 +38,13 @@ const menuData = [{
     url: "pages/tienda.html",
     script: "js/pages/tienda.js"
 },
+
+{
+    ubicacion: 1,
+    label: "pedidos",
+    url: "pages/pedidos.html",
+    script: "js/pages/pedidos.js"
+},
 {
     ubicacion: 2,
     label: "carrito",
@@ -152,4 +159,13 @@ class HeaderComponent extends HTMLElement {
     }
 }
 
-customElements.define("header-component", HeaderComponent);
+customElements.define("header-component", HeaderComponent)
+
+
+const formatoFecha = (fechaTransform) => {
+    const fecha = new Date(fechaTransform);
+    const dia = String(fecha.getDate()).padStart(2, '0');
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+    const anio = fecha.getFullYear();
+    return `${dia}/${mes}/${anio}`;
+}
