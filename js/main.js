@@ -1,5 +1,5 @@
 "use strict"
-window.SERVICIOURL = "https://ecotasty.store/apiProgramacionWebIsil";
+window.SERVICIOURL = "https://nexttravel.site/apiProgramacionWebIsil";
 
 const menuData = [{
     ubicacion: 1,
