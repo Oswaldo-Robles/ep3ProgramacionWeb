@@ -43,9 +43,9 @@
                         <div class="col-1">${pedido.idpedido}</div>
                         <div class="col-1 text-end">${formatoFecha(pedido.fechapedido)}</div>
                         <div class="col-3">${pedido.cliente}</div>
-                        <div class="col-2">${pedido.empresaenvio}</div>
-                        <div class="col-3">${pedido.destinatario}</div>
-                        <div class="col-2">${pedido.vendedor}</div>
+                        <div class="col-2">${pedido.empresaenvio ?? "Sin asignar"}</div>
+                        <div class="col-3">${pedido.destinatario ?? "Sin asignar"}</div>
+                        <div class="col-2">${pedido.vendedor ?? "Venta online"}</div>
                     </div>
 
                     <div class="collapse" id="collapsePedido${pedido.idpedido}">
